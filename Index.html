@@ -9,6 +9,7 @@
       body {
         font-family: helvetica, sans-serif;
         width: 350px;
+        margin: 0 auto;
       }
       label {
         font-weight: bold;  
@@ -26,20 +27,27 @@
         padding: 10px;
         visibility: hidden;
       }
+      .border-image{
+        border: 2rem solid gold;
+
+
+      }
     </style>
   </head>
 
   <body>
-    <div>
-      <label for="customName">Enter custom name:</label>
-      <input id="customName" type="text" placeholder="">
-    </div>
-    <div>
-      <label for="us">US</label><input id="us" type="radio" name="ukus" value="us" checked>
-      <label for="uk">UK</label><input id="uk" type="radio" name="ukus" value="uk">
-    </div>
-    <div>
-      <button class="randomize">Generate random story</button>
+    <div class="border-image">
+      <div>
+        <label for="customName">Enter custom name:</label>
+        <input id="customName" type="text" placeholder="">
+      </div>
+      <div>
+        <label for="us">US</label><input id="us" type="radio" name="ukus" value="us" checked>
+        <label for="uk">UK</label><input id="uk" type="radio" name="ukus" value="uk">
+      </div>
+      <div>
+        <button class="randomize">Generate random story</button>
+      </div>
     </div>
     <!-- Thanks a lot to Willy Aguirre for his help with the code for this assessment -->
     <p class="story"></p>
