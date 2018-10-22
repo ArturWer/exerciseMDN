@@ -1,7 +1,8 @@
 body{
   max-width: 250px;
   margin: 0 auto;
-  font-size: 1.5rem;
+  font-size: 22px;
+  font-family: sans-serif;
 }
 p{
   background-color: #1618b7;
