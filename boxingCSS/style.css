@@ -46,7 +46,7 @@ article{
 article{
   background: url('top-image.png') no-repeat top,
               url('bottom-image.png') no-repeat bottom center,
-              linear-gradient(to bottom, grey 0%, white 20%, white 80%, grey 100%); 
+              linear-gradient(to bottom, silver 0%, white 20%, white 80%, silver 100%); 
   border-bottom: 1mm solid rgb(255, 0, 0);
   border-top: 1mm solid rgb(255, 0, 0);
 }

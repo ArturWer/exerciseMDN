@@ -1,0 +1,16 @@
+body{
+  max-width: 250px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+p{
+  width: 200px;
+  text-align: center;
+  background-color: #1618b7;
+  color: #1618b7;
+  text-shadow: 1px 1px 3px white;
+  border: 1px solid #0c0d63;
+  border-radius: .5rem;
+  line-height: 3rem;
+  padding-bottom: .2rem;
+}
