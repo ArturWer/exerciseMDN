@@ -40,5 +40,7 @@ h1 {
 
 /* Your CSS below here */
 article{
-  background: url('top-image.png') no-repeat;
+  background: url('top-image.png') no-repeat top,
+              url('bottom-image.png') no-repeat bottom center,
+              linear-gradient(to bottom, grey 0%, white 20%, white 80%, grey 100%); 
 }
