@@ -50,4 +50,9 @@ article{
   border-bottom: 1mm solid rgb(255, 0, 0);
   border-top: 1mm solid rgb(255, 0, 0);
 }
+h1{
+  background-image: url('logo.png');
+  /*-webkit-filter: drop-shadow(5px 5px 1px rgba(0,0,0,0.7));*/
+  filter: drop-shadow(5px 5px 1px rgba(0,0,0,0.7));
+}
 
