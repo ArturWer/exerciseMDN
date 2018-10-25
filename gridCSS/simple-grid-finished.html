@@ -33,6 +33,12 @@
     .col.span10 { width: calc((6.25%*10) + (2.08333333%*9)); }
     .col.span11 { width: calc((6.25%*11) + (2.08333333%*10)); }
     .col.span12 { width: calc((6.25%*12) + (2.08333333%*11)); }
+    .offset-by-one {
+      margin-left: calc(6.25% + (2.08333333%*2));
+    }
+    .offset-by-two {
+      margin-left: calc(6.25%*2 + (2.08333333%*3));
+    }
     </style>
   </head>
 
@@ -54,8 +60,8 @@
       </div>
       <div class="row">
         <div class="col span1">13</div>
-        <div class="col span6">14</div>
-        <div class="col span3">15</div>
+        <div class="col span4 offset-by-two">14</div>
+        <div class="col span2 offset-by-one">15</div>
         <div class="col span2">16</div>
       </div>
     </div>
