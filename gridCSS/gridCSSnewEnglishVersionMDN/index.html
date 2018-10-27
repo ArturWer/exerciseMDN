@@ -19,7 +19,9 @@
         }
         .container{
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 3%;
+            grid-auto-rows: minmax(120px, auto);
         }
     </style>
 </head>
@@ -28,6 +30,15 @@
     <h1>Simple grid example</h1>
 
     <div class="container">
+        <div>One</div>
+        <div>Two</div>
+        <div>Three</div>
+        <div>Four</div>
+        <div>Five</div>
+        <div>Six
+            <img src="https://images.ua.prom.st/327740111_w200_h200_bd_455_b12_1.jpg">
+        </div>
+        <div>Seven</div>
         <div>One</div>
         <div>Two</div>
         <div>Three</div>
