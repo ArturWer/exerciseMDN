@@ -56,3 +56,7 @@ body {
   .feature {
       width: 200px;
 }
+main article img{
+  float: left;
+  margin-right: 20px;
+}
