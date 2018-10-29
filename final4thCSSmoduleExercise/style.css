@@ -51,6 +51,8 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
+    column-count: 2;
+    column-gap: 1px;
   }
 
   .feature {
@@ -59,4 +61,7 @@ body {
 main article img{
   float: left;
   margin-right: 20px;
+}
+main{
+  display: flex;
 }
