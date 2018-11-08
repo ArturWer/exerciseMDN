@@ -11,5 +11,5 @@ function changeBgColor (e){
   e.target.style.backgroundColor = color;
   console.log(e);
 };
-btn.onmouseover = changeBgColor;
+btn.onclick = changeBgColor;
 
