@@ -6,9 +6,10 @@ function random(num) {
   let color = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
   document.body.style.backgroundColor = color;
 }, false);*/
-function changeBgColor (){
+function changeBgColor (e){
   let color = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
-  document.body.style.backgroundColor = color;
+  e.target.style.backgroundColor = color;
+  console.log(e);
 };
 btn.onmouseover = changeBgColor;
 
