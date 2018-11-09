@@ -24,9 +24,11 @@ btn.onclick = function(){
 	if (btn.hasAttribute("class")) {
 		if (btn.className === "dark") {
 			btn.className = "light";
+			btn.textContent = "lighten";
 			overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
 		} else if (btn.className === "light") {
 			btn.className = "dark";
+			btn.textContent = "darken";
 			overlay.style.backgroundColor = "rgba(0,0,0,0)";
 		}
 	}
