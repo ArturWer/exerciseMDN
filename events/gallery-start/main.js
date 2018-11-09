@@ -12,5 +12,11 @@ for (var i = 1; i <= 5; i++) {
   newImage.setAttribute('src', name);
   thumbBar.appendChild(newImage);
 }
+thumbBar.addEventListener("click", function (e) {
+	let target = e.target;
+	if(target.hasAttribute("src")){
+		displayedImage.src = target.getAttribute("src");
+	}
+})
 /* Wiring up the Darken/Lighten button */
 
