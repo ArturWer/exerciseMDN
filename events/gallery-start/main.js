@@ -20,3 +20,15 @@ thumbBar.addEventListener("click", function (e) {
 })
 /* Wiring up the Darken/Lighten button */
 
+btn.onclick = function(){
+	if (btn.hasAttribute("class")) {
+		if (btn.className === "dark") {
+			btn.className = "light";
+			overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
+		} else if (btn.className === "light") {
+			btn.className = "dark";
+			overlay.style.backgroundColor = "rgba(0,0,0,0)";
+		}
+	}
+	console.log(btn.className);
+}
