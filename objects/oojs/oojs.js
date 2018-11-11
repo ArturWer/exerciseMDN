@@ -22,3 +22,7 @@ function Person(first, last, age, gender, interests) {
   };
 }
 let person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']);
+
+Person.prototype.farewell = function() {
+  alert(this.name.first + ' has left the building. Bye for now!');
+};*/
