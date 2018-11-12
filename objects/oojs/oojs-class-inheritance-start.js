@@ -64,9 +64,9 @@ var person1 = new Person('Tammi', 'Smith', 17, 'female', ['music', 'skiing', 'ki
 
 function Teacher(first, last, age, gender, interests, subject) {
   Person.call(this, first, last, age, gender, interests);
-
   this.subject = subject;
 }
+Teacher.prototype = Object.create(Person.prototype);
 Teacher.prototype.greeting = function() {
   var prefix;
 
@@ -81,3 +81,12 @@ Teacher.prototype.greeting = function() {
   alert('Hello. My name is ' + prefix + ' ' + this.name.last + ', and I teach ' + this.subject + '.');
 };
 var teacher1 = new Teacher('Dave', 'Griffiths', 31, 'male', ['football', 'cookery'], 'mathematics');
+
+function Student (first, last, age, gender, interests) {
+  Person.call(this, first, last, age, gender, interests);
+}
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.greeting = function() {
+  alert(`Hail. My name is ${this.name.first}, and I'm a student.`);
+};
+let student1 = new Student ("Laura", "Adams", 19, "F", ["cooking", "sleeping", "reading"]);
