@@ -61,3 +61,23 @@ Person.prototype.farewell = function() {
   alert(this.name.first + ' has left the building. Bye for now!');
 }
 var person1 = new Person('Tammi', 'Smith', 17, 'female', ['music', 'skiing', 'kickboxing']);
+
+function Teacher(first, last, age, gender, interests, subject) {
+  Person.call(this, first, last, age, gender, interests);
+
+  this.subject = subject;
+}
+Teacher.prototype.greeting = function() {
+  var prefix;
+
+  if (this.gender === 'male' || this.gender === 'Male' || this.gender === 'm' || this.gender === 'M') {
+    prefix = 'Mr.';
+  } else if (this.gender === 'female' || this.gender === 'Female' || this.gender === 'f' || this.gender === 'F') {
+    prefix = 'Mrs.';
+  } else {
+    prefix = 'Mx.';
+  }
+
+  alert('Hello. My name is ' + prefix + ' ' + this.name.last + ', and I teach ' + this.subject + '.');
+};
+var teacher1 = new Teacher('Dave', 'Griffiths', 31, 'male', ['football', 'cookery'], 'mathematics');
