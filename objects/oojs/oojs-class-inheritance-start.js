@@ -5,15 +5,26 @@ btn.onclick = function() {
   var code = input.value;
   para.textContent = eval(code);
 }
-function Person(first, last, age, gender, interests) {
-  this.name = {
-    first,
-    last
+class Person {
+  constructor(first, last, age, gender, interests) {
+    this.name = {
+      first,
+      last
+    };
+    this.age = age;
+    this.gender = gender;
+    this.interests = interests;
+  }
+
+  greeting() {
+    console.log(`Hi! I'm ${this.name.first}`);
   };
-  this.age = age;
-  this.gender = gender;
-  this.interests = interests;
-};
+
+  farewell() {
+    console.log(`${this.name.first} has left the building. Bye for now!`);
+  };
+}
+
 Person.prototype.bio = function() {
   // First define a string, and make it equal to the part of
   // the bio that we know will always be the same.
@@ -54,18 +65,23 @@ Person.prototype.bio = function() {
   // finally, with the string built, we alert() it
   alert(string);
 };
-Person.prototype.greeting = function() {
-  alert('Hi! I\'m ' + this.name.first + '.');
-};
-Person.prototype.farewell = function() {
-  alert(this.name.first + ' has left the building. Bye for now!');
-}
-var person1 = new Person('Tammi', 'Smith', 17, 'female', ['music', 'skiing', 'kickboxing']);
 
-function Teacher(first, last, age, gender, interests, subject) {
-  Person.call(this, first, last, age, gender, interests);
+var person1 = new Person('Tammi', 'Smith', 17, 'female', ['music', 'skiing', 'kickboxing']);
+class Teacher extends Person {
+  constructor(first, last, age, gender, interests, subject, grade) {
+    this.name = {
+      first,
+      last
+    };
+  this.age = age;
+  this.gender = gender;
+  this.interests = interests;
+  // subject and grade are specific to Teacher
   this.subject = subject;
+  this.grade = grade;
+  }
 }
+
 Teacher.prototype = Object.create(Person.prototype);
 Teacher.prototype.greeting = function() {
   var prefix;
@@ -90,3 +106,11 @@ Student.prototype.greeting = function() {
   alert(`Hail. My name is ${this.name.first}, and I'm a student.`);
 };
 let student1 = new Student ("Laura", "Adams", 19, "F", ["cooking", "sleeping", "reading"]);
+
+let han = new Person('Han', 'Solo', 25, 'male', ['Smuggling']);
+han.greeting();
+// Hi! I'm Han
+
+let leia = new Person('Leia', 'Organa', 19, 'female', ['Government']);
+leia.farewell();
+// Leia has left the building. Bye for now
