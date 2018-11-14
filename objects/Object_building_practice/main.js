@@ -21,3 +21,9 @@ function Ball(x, y, speedX, speedY, color, size) {
   this.color = color;
   this.size = size;
 }
+Ball.prototype.draw = function() {
+  ctx.beginPath();
+  ctx.fillStyle = this.color;
+  ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+  ctx.fill();
+}
