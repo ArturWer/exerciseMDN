@@ -70,12 +70,12 @@ class Ball extends Shape {
 }
 class EvilBall extends Shape {
   constructor(x, y, speedX, speedY, exists, color, size) {
-    super(x, y, speedX, speedY, exists);
+    super(x, y);
     this.speedX = 20;
     this.speedY = 20;
-    this.color = "white";
     this.exists = true;
-    size = 10;
+    this.color = "white";
+    this.size = 100;
   }
  draw() {
     ctx.beginPath();
@@ -128,6 +128,7 @@ class EvilBall extends Shape {
 
       if (distance < this.size + balls[j].size) {
         balls[j].exists = false;
+        console.log("Eated a ball");
       }
     }
   }
@@ -138,6 +139,9 @@ let balls = [];
 function loop() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
   ctx.fillRect(0, 0, width, height);
+
+  let evil1 = new EvilBall(400, 400, 20, 20, true, "white", 10);
+  evil1.setControls();
 
   while (balls.length < 25) {
     var size = random(10,20);
@@ -156,17 +160,14 @@ function loop() {
   }
 
   for (var i = 0; i < balls.length; i++) {
-    balls[i].draw();
-    balls[i].update();
-    balls[i].collisionDetect();
+    if(balls[i].exists){
+      balls[i].draw();
+      balls[i].update();
+      balls[i].collisionDetect();
+    }
   }
-  let evil = new EvilBall(
-    random(0 + size,width - size),
-    random(0 + size,height - size),
-    );
-  evil.draw();
-  evil.checkBounds();
-  evil.setControls();
+  evil1.draw();
+  evil1.checkBounds();
 
   requestAnimationFrame(loop);
 }
