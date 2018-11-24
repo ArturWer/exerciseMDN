@@ -13,21 +13,27 @@ function random(min,max) {
   return num;
 }
 
-function Ball(x, y, speedX, speedY, color, size) {
-  this.x = x;
-  this.y = y;
-  this.speedX = speedX;
-  this.speedY = speedY;
-  this.color = color;
-  this.size = size;
+class Shape {
+  constructor(x, y, speedX, speedY, exists) {
+    this.x = x;
+    this.y = y;
+    this.speedX = speedX;
+    this.speedY = speedY;
+    this.exists = exists;
+  }
 }
-Ball.prototype.draw = function() {
+class Ball extends Shape {
+  constructor(x, y, speedX, speedY, exists) {
+    super(x, y, speedX, speedY, exists);
+  }
+}
+Shape.prototype.draw = function() {
   ctx.beginPath();
   ctx.fillStyle = this.color;
   ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
   ctx.fill();
 }
-Ball.prototype.update = function() {
+Shape.prototype.update = function() {
   if ((this.x + this.size) >= width) {
     this.speedX = -(this.speedX);
   }
@@ -47,7 +53,7 @@ Ball.prototype.update = function() {
   this.x += this.speedX;
   this.y += this.speedY;
 }
-Ball.prototype.collisionDetect = function() {
+Shape.prototype.collisionDetect = function() {
   for (var j = 0; j < balls.length; j++) {
     if (!(this === balls[j])) {
       var dx = this.x - balls[j].x;
@@ -67,15 +73,14 @@ function loop() {
 
   while (balls.length < 25) {
     var size = random(10,20);
-    var ball = new Ball(
+    var ball = new Shape(
       // ball position always drawn at least one ball width
       // away from the edge of the canvas, to avoid drawing errors
       random(0 + size,width - size),
       random(0 + size,height - size),
       random(-7,7),
       random(-7,7),
-      'rgb(' + random(0,255) + ',' + random(0,255) + ',' + random(0,255) +')',
-      size
+      true
     );
     balls.push(ball);
   }
