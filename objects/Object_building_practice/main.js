@@ -23,37 +23,38 @@ class Shape {
   }
 }
 class Ball extends Shape {
-  constructor(x, y, speedX, speedY, exists) {
+  constructor(x, y, speedX, speedY, exists, color, size) {
     super(x, y, speedX, speedY, exists);
+    this.color = color;
+    this.size = size;
   }
-}
-Shape.prototype.draw = function() {
-  ctx.beginPath();
-  ctx.fillStyle = this.color;
-  ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-  ctx.fill();
-}
-Shape.prototype.update = function() {
-  if ((this.x + this.size) >= width) {
-    this.speedX = -(this.speedX);
-  }
+  draw() {
+    ctx.beginPath();
+    ctx.fillStyle = this.color;
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.fill();
+  };
+  update() {
+    if ((this.x + this.size) >= width) {
+      this.speedX = -(this.speedX);
+    }
 
-  if ((this.x - this.size) <= 0) {
-    this.speedX = -(this.speedX);
-  }
+    if ((this.x - this.size) <= 0) {
+      this.speedX = -(this.speedX);
+    }
 
-  if ((this.y + this.size) >= height) {
-    this.speedY = -(this.speedY);
-  }
+    if ((this.y + this.size) >= height) {
+      this.speedY = -(this.speedY);
+    }
 
-  if ((this.y - this.size) <= 0) {
-    this.speedY = -(this.speedY);
-  }
+    if ((this.y - this.size) <= 0) {
+      this.speedY = -(this.speedY);
+    }
 
-  this.x += this.speedX;
-  this.y += this.speedY;
-}
-Shape.prototype.collisionDetect = function() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+  };
+  collisionDetect() {
   for (var j = 0; j < balls.length; j++) {
     if (!(this === balls[j])) {
       var dx = this.x - balls[j].x;
@@ -66,6 +67,8 @@ Shape.prototype.collisionDetect = function() {
     }
   }
 }
+}
+
 let balls = [];
 function loop() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
@@ -73,14 +76,16 @@ function loop() {
 
   while (balls.length < 25) {
     var size = random(10,20);
-    var ball = new Shape(
+    var ball = new Ball(
       // ball position always drawn at least one ball width
       // away from the edge of the canvas, to avoid drawing errors
       random(0 + size,width - size),
       random(0 + size,height - size),
       random(-7,7),
       random(-7,7),
-      true
+      true,
+      "blue",
+      14
     );
     balls.push(ball);
   }
