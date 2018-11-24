@@ -74,6 +74,7 @@ class EvilBall extends Shape {
     this.speedX = 20;
     this.speedY = 20;
     this.color = "white";
+    this.exists = true;
     size = 10;
   }
  draw() {
@@ -100,6 +101,37 @@ class EvilBall extends Shape {
       this.speedY ++;
     }
   };
+  setControls(){
+    var _this = this;
+    window.onkeydown = function(e) {
+        if (e.keyCode === 65) {
+          _this.x -= _this.velX;
+          console.log(`keyCode === 65`);
+        } else if (e.keyCode === 68) {
+          _this.x += _this.velX;
+          console.log(`keyCode === 68`);
+        } else if (e.keyCode === 87) {
+          _this.y -= _this.velY;
+          console.log(`keyCode === 87`);
+        } else if (e.keyCode === 83) {
+          _this.y += _this.velY;
+          console.log(`keyCode === 83`);
+        }
+    }
+  };
+  collisionDetect() {
+  for (var j = 0; j < balls.length; j++) {
+    if (balls[j].exists !== false) {
+      var dx = this.x - balls[j].x;
+      var dy = this.y - balls[j].y;
+      var distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < this.size + balls[j].size) {
+        balls[j].exists = false;
+      }
+    }
+  }
+ };
 }
 
 let balls = [];
@@ -128,12 +160,13 @@ function loop() {
     balls[i].update();
     balls[i].collisionDetect();
   }
-  let evil = new EvilBall (
+  let evil = new EvilBall(
     random(0 + size,width - size),
     random(0 + size,height - size),
     );
   evil.draw();
   evil.checkBounds();
+  evil.setControls();
 
   requestAnimationFrame(loop);
 }
