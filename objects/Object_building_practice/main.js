@@ -68,6 +68,15 @@ class Ball extends Shape {
   }
 }
 }
+class EvilBall extends Shape {
+  constructor(x, y, speedX, speedY, exists, color, size) {
+    super(x, y, speedX, speedY, exists);
+    this.speedX = 20;
+    this.speedY = 20;
+    this.color = "white";
+    size = 10;
+  }
+}
 
 let balls = [];
 function loop() {
@@ -85,7 +94,7 @@ function loop() {
       random(-7,7),
       true,
       "blue",
-      14
+      random(10,20)
     );
     balls.push(ball);
   }
