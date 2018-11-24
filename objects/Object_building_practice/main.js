@@ -76,6 +76,30 @@ class EvilBall extends Shape {
     this.color = "white";
     size = 10;
   }
+ draw() {
+    ctx.beginPath();
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = this.color;
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.stroke();
+  };
+  checkBounds() {
+    if ((this.x + this.size) >= width) {
+      this.speedX --;
+    }
+
+    if ((this.x - this.size) <= 0) {
+      this.speedX ++;
+    }
+
+    if ((this.y + this.size) >= height) {
+      this.speedY --;
+    }
+
+    if ((this.y - this.size) <= 0) {
+      this.speedY ++;
+    }
+  };
 }
 
 let balls = [];
@@ -104,6 +128,12 @@ function loop() {
     balls[i].update();
     balls[i].collisionDetect();
   }
+  let evil = new EvilBall (
+    random(0 + size,width - size),
+    random(0 + size,height - size),
+    );
+  evil.draw();
+  evil.checkBounds();
 
   requestAnimationFrame(loop);
 }
