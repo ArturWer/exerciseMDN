@@ -2,7 +2,7 @@
 
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
-let countP = document.querySelector('p');
+let countNum = document.querySelector('p span');
 let countBalls = 25;
 let catchedBalls = 0;
 
@@ -140,11 +140,15 @@ class EvilBall extends Shape {
 
       if (distance < this.size + balls[j].size) {
         balls[j].exists = false;
+        catchedBalls++;
         console.log("Eated a ball");
       }
     }
   }
  };
+}
+function showCount(){
+  countNum.textContent = catchedBalls;
 }
 
 let balls = [];
@@ -183,7 +187,8 @@ function loop() {
     }
   }
   
-
+  showCount();
   requestAnimationFrame(loop);
 }
+
 loop();
