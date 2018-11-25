@@ -97,13 +97,17 @@ class EvilBall extends Shape {
         this.size -= 1;
       }
     }
-
     if ((this.y + this.size) >= height) {
-      this.speedY --;
+      this.y = height - 30;
+      if (this.size>=5) {
+        this.size -= 1;
+      }
     }
-
     if ((this.y - this.size) <= 0) {
-      this.speedY ++;
+      this.y = 0 + 30;
+      if (this.size>=5) {
+        this.size -= 1;
+      }
     }
   };
   setControls(){
