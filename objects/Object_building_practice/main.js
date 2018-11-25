@@ -106,16 +106,16 @@ class EvilBall extends Shape {
     window.onkeydown = function(e) {
         if (e.keyCode === 65) {
           _this.x -= _this.speedX;
-          console.log(`keyCode === 65`);
+          console.log(`*** a *** keyCode ${e.keyCode}`);
         } else if (e.keyCode === 68) {
           _this.x += _this.speedX;
-          console.log(`keyCode === 68`);
+          console.log(`*** d *** keyCode ${e.keyCode}`);
         } else if (e.keyCode === 87) {
           _this.y -= _this.speedY;
-          console.log(`keyCode === 87`);
+          console.log(`*** w *** keyCode ${e.keyCode}`);
         } else if (e.keyCode === 83) {
           _this.y += _this.speedY;
-          console.log(`keyCode === 83`);
+          console.log(`*** s *** keyCode ${e.keyCode}`);
         }
     }
   };
