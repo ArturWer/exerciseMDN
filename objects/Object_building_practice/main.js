@@ -105,16 +105,16 @@ class EvilBall extends Shape {
     var _this = this;
     window.onkeydown = function(e) {
         if (e.keyCode === 65) {
-          _this.x -= _this.velX;
+          _this.x -= _this.speedX;
           console.log(`keyCode === 65`);
         } else if (e.keyCode === 68) {
-          _this.x += _this.velX;
+          _this.x += _this.speedX;
           console.log(`keyCode === 68`);
         } else if (e.keyCode === 87) {
-          _this.y -= _this.velY;
+          _this.y -= _this.speedY;
           console.log(`keyCode === 87`);
         } else if (e.keyCode === 83) {
-          _this.y += _this.velY;
+          _this.y += _this.speedY;
           console.log(`keyCode === 83`);
         }
     }
@@ -140,7 +140,7 @@ function loop() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
   ctx.fillRect(0, 0, width, height);
 
-  let evil1 = new EvilBall(400, 400, 20, 20, true, "white", 10);
+  let evil1 = new EvilBall(width/2, height/4*3, 20, 20, true, "white", 10);
   evil1.setControls();
 
   while (balls.length < 25) {
@@ -168,6 +168,7 @@ function loop() {
   }
   evil1.draw();
   evil1.checkBounds();
+  evil1.collisionDetect();
 
   requestAnimationFrame(loop);
 }
