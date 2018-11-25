@@ -78,7 +78,7 @@ class EvilBall extends Shape {
     this.speedY = 20;
     this.exists = true;
     this.color = "white";
-    this.size = 10;
+    this.size = 100;
   }
  draw() {
     ctx.beginPath();
@@ -188,7 +188,14 @@ function loop() {
   }
   
   showCount();
-  requestAnimationFrame(loop);
+  if (catchedBalls >= countBalls) {
+    ctx.fillStyle = "gold";
+    ctx.fillRect(0,0,width,height);
+    ctx.font = "4rem sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillStyle = "green";
+    ctx.fillText ("You win (press f5)", width/2, height/2);
+  } else requestAnimationFrame(loop);
 }
 
 loop();
