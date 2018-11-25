@@ -75,7 +75,7 @@ class EvilBall extends Shape {
     this.speedY = 20;
     this.exists = true;
     this.color = "white";
-    this.size = 100;
+    this.size = 10;
   }
  draw() {
     ctx.beginPath();
@@ -86,11 +86,16 @@ class EvilBall extends Shape {
   };
   checkBounds() {
     if ((this.x + this.size) >= width) {
-      this.speedX --;
+      this.x = width - 30;
+      if (this.size>=5) {
+        this.size -= 1;
+      }
     }
-
     if ((this.x - this.size) <= 0) {
-      this.speedX ++;
+      this.x = 0 + 30;
+      if (this.size>=5) {
+        this.size -= 1;
+      }
     }
 
     if ((this.y + this.size) >= height) {
@@ -103,12 +108,10 @@ class EvilBall extends Shape {
   };
   setControls(){
     var _this = this;
-    console.log(`this.x ${this.x} _this.x ${_this.x}`);
     window.onkeydown = function(e) {
         if (e.keyCode === 65) {
-          console.log(`*** a *** keyCode ${e.keyCode} START _this.x ${_this.x}`);
           _this.x -= _this.speedX;
-          console.log(`*** a *** keyCode ${e.keyCode} _this.x ${_this.x}`);
+          console.log(`*** a *** keyCode ${e.keyCode}`);
         } else if (e.keyCode === 68) {
           _this.x += _this.speedX;
           console.log(`*** d *** keyCode ${e.keyCode}`);
