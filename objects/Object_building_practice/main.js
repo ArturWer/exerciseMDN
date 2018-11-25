@@ -1,15 +1,18 @@
 // setup canvas
 
-var canvas = document.querySelector('canvas');
-var ctx = canvas.getContext('2d');
+let canvas = document.querySelector('canvas');
+let ctx = canvas.getContext('2d');
+let countP = document.querySelector('p');
+let countBalls = 25;
+let catchedBalls = 0;
 
-var width = canvas.width = window.innerWidth;
-var height = canvas.height = window.innerHeight;
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
 
 // function to generate random number
 
 function random(min,max) {
-  var num = Math.floor(Math.random()*(max-min+1)) + min;
+  let num = Math.floor(Math.random()*(max-min+1)) + min;
   return num;
 }
 
@@ -150,7 +153,7 @@ function loop() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
   ctx.fillRect(0, 0, width, height);
 
-  while (balls.length < 25) {
+  while (balls.length < countBalls) {
     var size = random(10,20);
     var ball = new Ball(
       // ball position always drawn at least one ball width
