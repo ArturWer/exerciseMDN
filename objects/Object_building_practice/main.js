@@ -103,10 +103,12 @@ class EvilBall extends Shape {
   };
   setControls(){
     var _this = this;
+    console.log(`this.x ${this.x} _this.x ${_this.x}`);
     window.onkeydown = function(e) {
         if (e.keyCode === 65) {
+          console.log(`*** a *** keyCode ${e.keyCode} START _this.x ${_this.x}`);
           _this.x -= _this.speedX;
-          console.log(`*** a *** keyCode ${e.keyCode}`);
+          console.log(`*** a *** keyCode ${e.keyCode} _this.x ${_this.x}`);
         } else if (e.keyCode === 68) {
           _this.x += _this.speedX;
           console.log(`*** d *** keyCode ${e.keyCode}`);
@@ -136,12 +138,10 @@ class EvilBall extends Shape {
 }
 
 let balls = [];
+let evil1 = new EvilBall(width/2, height/4*3, 20, 20, true, "white", 10);;
 function loop() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
   ctx.fillRect(0, 0, width, height);
-
-  let evil1 = new EvilBall(width/2, height/4*3, 20, 20, true, "white", 10);
-  evil1.setControls();
 
   while (balls.length < 25) {
     var size = random(10,20);
@@ -158,6 +158,12 @@ function loop() {
     );
     balls.push(ball);
   }
+  if (evil1){
+    evil1.setControls();
+    evil1.draw();
+    evil1.checkBounds();
+    evil1.collisionDetect();
+  }
 
   for (var i = 0; i < balls.length; i++) {
     if(balls[i].exists){
@@ -166,9 +172,7 @@ function loop() {
       balls[i].collisionDetect();
     }
   }
-  evil1.draw();
-  evil1.checkBounds();
-  evil1.collisionDetect();
+  
 
   requestAnimationFrame(loop);
 }
