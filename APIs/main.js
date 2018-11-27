@@ -7,3 +7,7 @@ let para = document.createElement("p");
 let textP = document.createTextNode("I'm a new text Node");
 para.appendChild(textP);
 sect.appendChild(para);
+
+let secondPara = document.createElement("p");
+secondPara.textContent = "I'm textContent added eement";
+sect.appendChild(secondPara);
