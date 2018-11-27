@@ -11,3 +11,5 @@ sect.appendChild(para);
 let secondPara = document.createElement("p");
 secondPara.textContent = "I'm textContent added eement";
 sect.appendChild(secondPara);
+let clone = para.cloneNode(true);
+sect.appendChild(clone);
