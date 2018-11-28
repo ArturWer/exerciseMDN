@@ -13,3 +13,5 @@ secondPara.textContent = "I'm textContent added eement";
 sect.appendChild(secondPara);
 let clone = para.cloneNode(true);
 sect.appendChild(clone);
+
+sect.removeChild(para);
