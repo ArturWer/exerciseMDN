@@ -14,4 +14,5 @@ sect.appendChild(secondPara);
 let clone = para.cloneNode(true);
 sect.appendChild(clone);
 
-sect.removeChild(para);
+
+para.setAttribute('class', "highlight");
