@@ -1,6 +1,11 @@
-let div = document.querySelector("div"),
-	HEIGHT = window.innerHeight,
-	WIDTH = window.innerWidth;
+let div = document.querySelector("div");
 
-div.style.height = `${HEIGHT}px`;
-div.style.width = `${WIDTH}px`;
+function changeSize() {
+	let	HEIGHT = window.innerHeight;
+	let	WIDTH = window.innerWidth;
+
+	div.style.height = `${HEIGHT}px`;
+	div.style.width = `${WIDTH}px`;
+}
+changeSize();
+window.onresize = changeSize;
