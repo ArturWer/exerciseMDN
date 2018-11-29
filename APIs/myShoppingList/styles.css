@@ -10,3 +10,13 @@ main{
 	max-width: 500px;
 	margin: 0 auto;
 }
+li{
+	font-size: 2rem;
+}
+button{
+	border-radius: 2px;
+	margin-left: 20px; 
+}
+.delBtn{
+	background-color: gold;
+}

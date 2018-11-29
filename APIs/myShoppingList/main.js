@@ -7,6 +7,7 @@ function createNewEl(text){
 	let liText = document.createTextNode(text);
 	let delBtn = document.createElement("button");
 	delBtn.textContent = "DELETE"
+	delBtn.className = "delBtn";
 	li.appendChild(liText);
 	li.appendChild(delBtn);
 	ul.appendChild(li);
@@ -14,4 +15,9 @@ function createNewEl(text){
 btn.addEventListener("click", function(){
 	createNewEl(newItem.value);
 	newItem.value = "";
+});
+ul.addEventListener("click", function(e){
+	let removeLi = e.target.parentElement;
+	let container = removeLi.parentNode;
+	container.removeChild(removeLi);
 });
