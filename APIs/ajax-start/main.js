@@ -6,6 +6,7 @@ function updateDisplay(verse) {
 	word = word.replace(" ", "");
     word = `src/${word}.txt`;
 	console.log(word);
+	let request = new XMLhttpRequest();
 };
 verseChoose.onchange = function() {
   let verse = verseChoose.value;
