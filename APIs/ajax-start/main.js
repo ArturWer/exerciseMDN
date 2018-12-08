@@ -7,6 +7,8 @@ function updateDisplay(verse) {
     word = `src/${word}.txt`;
 	console.log(word);
 	let request = new XMLhttpRequest();
+	request.open("GET", url);
+	request.responseType = 'text';
 };
 verseChoose.onchange = function() {
   let verse = verseChoose.value;
