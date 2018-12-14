@@ -4,9 +4,9 @@ let poemDisplay = document.querySelector('pre');
 function updateDisplay(verse) {
 	let word = verse.toLowerCase();
 	word = word.replace(" ", "");
-    word = `src/${word}.txt`;
+    let url = `src/${word}.txt`;
 	console.log(word);
-	let request = new XMLhttpRequest();
+	let request = new XMLHttpRequest();
 	request.open("GET", url);
 	request.responseType = 'text';
 	request.send();
