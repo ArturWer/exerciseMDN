@@ -13,8 +13,8 @@ smallImages.addEventListener("click", e =>{
 	let el = e.target;
 	if (el.hasAttribute('src')) {
 		let imgName = el.getAttribute('src');
-		let img = searchNumImg(imgName);
-		console.log(img);
+		let newImg = searchNumImg(imgName);
+		bigImg.setAttribute("src", newImg);
 	}
 	console.log();
 });
