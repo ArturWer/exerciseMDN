@@ -1,11 +1,21 @@
 "use strict"
-let btn = document.querySelector('button.showDialog');
-let modalDialog = document.querySelector("dialog");
+let smallImages = document.querySelector('.smallImages');
+let bigImg = document.querySelector('.bigImg');
 
-btn.addEventListener("click", e =>{
-	modalDialog.showModal();
+function searchNumImg(name) {
+	let indexNumber = name.indexOf('-small');
+	let arr = name.split("-small");
+	let newWord = arr[0].concat("", arr[1]);
+	return newWord;
+}
+smallImages.addEventListener("click", e =>{
+	e.preventDefault();
+	let el = e.target;
+	if (el.hasAttribute('src')) {
+		let imgName = el.getAttribute('src');
+		let img = searchNumImg(imgName);
+		console.log(img);
+	}
+	console.log();
 });
 
-modalDialog.addEventListener("click", e =>{
-	modalDialog.close();
-});
