@@ -1,0 +1,14 @@
+body{
+    font-size: 20px;
+
+    margin: 0;
+    padding: 0;
+
+    transition: all .5s linear;
+}
+dialog::backdrop{
+    background: rgba(255,255,10,.25);
+}
+p{
+	text-align: center;
+}
