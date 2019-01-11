@@ -1,24 +1,42 @@
 body{
-	padding: 0;
-	margin: 0;
-	font-size: 2rem;
+    font-size: 2rem;
+
+    margin: 0;
+    padding: 0;
+
+	transition: all .5s linear;
 }
 header nav{
-	max-width: 700px;
-	margin: 2rem auto 0 auto;
+    max-width: 700px;
+    margin: 2rem auto 0 auto;
 }
 header nav a{
-	padding: 1rem;
-	text-decoration: none;
-	font-size: inherit;
-	transition: all 0.5s linear;
-	color: maroon;
-	background-color: silver;
-	border-radius: 5px;
+    font-size: inherit;
+
+    padding: 1rem;
+
+    transition: all .5s linear;
+    text-decoration: none;
+
+    color: maroon;
+    border-radius: .5rem;
+    box-shadow: 2px 2px 5px black;
 }
 header nav a:hover{
-	color: #fff;
-	background-color: maroon;
-	box-shadow: 2px 2px 5px black;
-	border-radius: 1rem;
+    color: #fff;
+    border-radius: 1rem;
+    background-color: maroon;
+    box-shadow: 2px 2px 5px black;
 }
+main{
+	padding-top: 3rem;
+}
+
+.imgBox img{
+	box-shadow: 2px 2px 5px black;
+	margin: 0 auto;
+}
+.imgBox img:hover{
+	width: 640px;
+}
+
